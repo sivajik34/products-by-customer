@@ -26,7 +26,6 @@ class Index  extends \Magento\Reports\Controller\Adminhtml\Report\Sales
      */
     public function execute()
     {
-        $this->_showLastExecutionTime(Flag::REPORT_BESTSELLERS_FLAG_CODE, 'itemsbycustomer');
 
         $this->_initAction()->_setActiveMenu(
             'Tony_Reports::itemsbycustomer'
@@ -35,12 +34,6 @@ class Index  extends \Magento\Reports\Controller\Adminhtml\Report\Sales
             __('Products By Customer Report')
         );
         $this->_view->getPage()->getConfig()->getTitle()->prepend(__('Products By Customer Report'));
-
-        $gridBlock = $this->_view->getLayout()->getBlock('adminhtml_sales_itemsbycustomer.grid');
-        $filterFormBlock = $this->_view->getLayout()->getBlock('grid.filter.form');
-
-        $this->_initReportAction([$gridBlock, $filterFormBlock]);
-
         $this->_view->renderLayout();
     }
 
